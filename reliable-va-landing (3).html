@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reliable V A Solutions, LLC — Stay Connected</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:    #1a2744;
+      --navy-deep: #0f1b33;
+      --gold:    #c9a84c;
+      --gold-light: #e2c27a;
+      --cream:   #fdf8f0;
+      --white:   #ffffff;
+      --gray:    #6b7280;
+      --light-gray: #f3f4f6;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      min-height: 100vh;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 60%, #243560 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* diagonal gold accent bar */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0; right: 0;
+      height: 60px;
+      background: var(--cream);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 4.5rem 0 5.5rem;
+    }
+
+    .logo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.35);
+      border-radius: 50px;
+      padding: 0.4rem 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .logo-badge span {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    .logo-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.78);
+      max-width: 520px;
+      margin: 0 auto 1.8rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      margin-bottom: 0;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold-light);
+      padding: 0.35rem 0.9rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── PDF GIFT BANNER ── */
+    .pdf-gift {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: linear-gradient(135deg, var(--navy) 0%, #243560 100%);
+      border-radius: 16px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 8px 30px rgba(26,39,68,0.15);
+    }
+
+    .pdf-icon {
+      font-size: 2.2rem;
+      flex-shrink: 0;
+    }
+
+    .pdf-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .pdf-text strong {
+      color: var(--white);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .pdf-text span {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .pdf-badge {
+      background: var(--gold);
+      color: var(--navy-deep);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      padding: 0.3rem 0.7rem;
+      border-radius: 50px;
+      flex-shrink: 0;
+    }
+
+    /* ── PDF DOWNLOAD BUTTON ── */
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--navy) 0%, #243560 100%);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 10px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-top: 1rem;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 16px rgba(26,39,68,0.25);
+    }
+
+    .btn-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(26,39,68,0.35);
+    }
+
+    /* ── FORM SECTION ── */
+    .form-section {
+      max-width: 680px;
+      margin: -10px auto 0;
+      padding: 0 1.5rem 5rem;
+    }
+
+    .form-card {
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(26,39,68,0.12), 0 4px 16px rgba(26,39,68,0.06);
+      padding: 2.8rem 2.5rem;
+      position: relative;
+      border-top: 4px solid var(--gold);
+    }
+
+    .form-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+      font-weight: 700;
+    }
+
+    .form-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 540px) {
+      .form-row { grid-template-columns: 1fr; }
+      .form-card { padding: 2rem 1.4rem; }
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .field.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid #dde1ea;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-family: 'Lato', sans-serif;
+      color: var(--navy);
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+    }
+
+    /* checkboxes */
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.92rem;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      cursor: pointer;
+      color: var(--navy);
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: 18px; height: 18px;
+      accent-color: var(--gold);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .checkbox-label-group {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, var(--gold) 0%, #b8912f 100%);
+      color: var(--white);
+      border: none;
+      border-radius: 12px;
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+      box-shadow: 0 4px 18px rgba(201,168,76,0.35);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,168,76,0.45);
+      filter: brightness(1.05);
+    }
+
+    .btn-submit:active { transform: translateY(0); }
+
+    .btn-submit:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+      color: #c8cdd8;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e4e8f0;
+    }
+
+    /* ── SUCCESS STATE ── */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    .success-msg.visible { display: block; }
+
+    .success-icon {
+      width: 64px; height: 64px;
+      background: linear-gradient(135deg, var(--gold), #b8912f);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+      font-size: 1.8rem;
+      box-shadow: 0 6px 20px rgba(201,168,76,0.3);
+      animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .success-msg h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .success-msg p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    /* ── ERROR ── */
+    .error-banner {
+      display: none;
+      background: #fff0f0;
+      border: 1px solid #fca5a5;
+      color: #b91c1c;
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .error-banner.visible { display: block; }
+
+    /* ── SETUP NOTICE ── */
+    .setup-notice {
+      background: #fffbeb;
+      border: 1px solid #fcd34d;
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.85rem;
+      color: #92400e;
+      line-height: 1.6;
+    }
+
+    .setup-notice strong { color: #78350f; }
+
+    .setup-notice code {
+      background: rgba(0,0,0,0.08);
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.82rem;
+    }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip {
+      background: var(--navy);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .trust-strip p {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .trust-items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .trust-item svg { flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-deep);
+      padding: 1.5rem;
+      text-align: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.8rem;
+    }
+
+    footer a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<!-- ───────────────── HERO ───────────────── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="logo-badge">
+      <div class="logo-dot"></div>
+      <span>Reliable V A Solutions, LLC</span>
+    </div>
+
+    <h1>Stay <em>Ahead</em> of the Curve.<br>Never Miss a Beat.</h1>
+    <p class="hero-sub">
+      Subscribe and instantly receive <strong style="color:var(--gold-light)">The Small Business AI Toolbox</strong> — a free guide packed with 40+ AI tools, frameworks, and strategies to grow your business.
+    </p>
+
+    <div class="hero-pills">
+      <span class="pill">🎁 Free AI Toolbox PDF</span>
+      <span class="pill">📰 Monthly Newsletter</span>
+      <span class="pill">🏷️ Exclusive Sales</span>
+      <span class="pill">📅 Appointment Reminders</span>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────── FORM ───────────────── -->
+<section class="form-section">
+  <!-- PDF GIFT BANNER -->
+  <div class="pdf-gift">
+    <div class="pdf-icon">📘</div>
+    <div class="pdf-text">
+      <strong>Your Free Gift: The Small Business AI Toolbox</strong>
+      <span>40+ AI tools, frameworks &amp; mental models — delivered instantly when you subscribe.</span>
+    </div>
+    <div class="pdf-badge">FREE</div>
+  </div>
+
+  <div class="form-card">
+
+    <h2>Subscribe &amp; Get Instant Access</h2>
+    <p>Fill in your details below and we'll send your free AI Toolbox PDF plus your chosen updates. It's free — always.</p>
+
+    <!-- ⚠️ SETUP NOTICE (remove after configuring Google Sheets) -->
+    <div class="setup-notice" id="setupNotice">
+      <strong>🔧 One-Time Google Sheets Setup Required:</strong><br>
+      To save contacts automatically, create a Google Apps Script Web App and paste its deployment URL into the <code>GOOGLE_SCRIPT_URL</code> variable in this page's &lt;script&gt;. See the setup instructions below the form.
+    </div>
+
+    <div class="error-banner" id="errorBanner">Something went wrong. Please try again or contact us directly.</div>
+
+    <!-- FORM -->
+    <form id="signupForm" novalidate>
+      <div class="form-row">
+        <div class="field">
+          <label for="firstName">First Name *</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Jane" required />
+        </div>
+        <div class="field">
+          <label for="lastName">Last Name *</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Smith" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone Number (optional)</label>
+        <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" />
+      </div>
+
+      <div class="field">
+        <label for="business">Business / Organization (optional)</label>
+        <input type="text" id="business" name="business" placeholder="Your Company Name" />
+      </div>
+
+      <div class="divider">I'd like to receive</div>
+
+      <div class="checkbox-label-group">Choose your preferences *</div>
+      <div class="checkbox-group">
+        <label>
+          <input type="checkbox" name="prefs" value="newsletter" id="chkNewsletter" />
+          📰 Free Monthly Newsletter — tips, insights & business resources
+        </label>
+        <label>
+          <input type="checkbox" name="prefs" value="sales" id="chkSales" />
+          🏷️ Sales &amp; Special Offers — exclusive discounts on VA services
+        </label>
+        <label>
+          <input type="checkbox" name="prefs" value="reminders" id="chkReminders" />
+          📅 Appointment Reminders — stay on schedule with timely nudges
+        </label>
+      </div>
+
+      <button class="btn-submit" type="submit" id="submitBtn">
+        Subscribe — It's Free ✨
+      </button>
+    </form>
+
+    <!-- SUCCESS -->
+    <div class="success-msg" id="successMsg">
+      <div class="success-icon">✓</div>
+      <h3>You're All Set!</h3>
+      <p>Thank you for joining! Your free AI Toolbox is ready to download below. Keep an eye on your inbox for your chosen updates from Reliable V A Solutions, LLC.</p>
+      <a class="btn-download" href="The_Small_Business_AI_Toolbox_-_Toolstack.pdf" download="The_Small_Business_AI_Toolbox.pdf">
+        ⬇ Download Your Free AI Toolbox PDF
+      </a>
+    </div>
+
+  </div><!-- /form-card -->
+
+  <!-- ── GOOGLE SHEETS SETUP INSTRUCTIONS ── -->
+  <details style="margin-top:2rem; background:#fff; border-radius:14px; border:1px solid #e2e8f0; padding:1.5rem; font-size:0.88rem; line-height:1.8; color:#374151;">
+    <summary style="font-weight:700; color:var(--navy); cursor:pointer; font-size:1rem; margin-bottom:0.5rem;">
+      📋 How to Connect to Google Sheets (click to expand)
+    </summary>
+    <br>
+    <strong>Step 1 — Create a Google Sheet</strong><br>
+    Open <a href="https://sheets.google.com" target="_blank">Google Sheets</a>, create a new spreadsheet, and name it <em>"Reliable VA — Subscribers"</em>. Add these column headers in Row 1:<br>
+    <code>Timestamp | First Name | Last Name | Email | Phone | Business | Newsletter | Sales | Reminders</code>
+    <br><br>
+    <strong>Step 2 — Create an Apps Script</strong><br>
+    In your Sheet, go to <strong>Extensions → Apps Script</strong>. Replace all default code with:
+    <pre style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:1rem;overflow-x:auto;font-size:0.82rem;margin-top:0.5rem;">
+function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data  = JSON.parse(e.postData.contents);
+  sheet.appendRow([
+    new Date().toLocaleString(),
+    data.firstName,
+    data.lastName,
+    data.email,
+    data.phone    || '',
+    data.business || '',
+    data.newsletter ? 'Yes' : 'No',
+    data.sales      ? 'Yes' : 'No',
+    data.reminders  ? 'Yes' : 'No'
+  ]);
+  return ContentService
+    .createTextOutput(JSON.stringify({result:'success'}))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function doGet() {
+  return ContentService.createTextOutput('OK');
+}
+    </pre>
+
+    <strong>Step 3 — Deploy as Web App</strong><br>
+    Click <strong>Deploy → New Deployment → Web app</strong>.<br>
+    Set <em>"Execute as"</em> → <strong>Me</strong> and <em>"Who has access"</em> → <strong>Anyone</strong>. Click Deploy, then copy the Web App URL.
+    <br><br>
+    <strong>Step 4 — Paste the URL in this page</strong><br>
+    Find the line near the bottom of this HTML file that says:<br>
+    <code>const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';</code><br>
+    Replace the placeholder with your deployed URL. Save and publish the page. Done! 🎉
+  </details>
+
+</section>
+
+<div class="trust-strip">
+  <p>What you get when you subscribe</p>
+  <div class="trust-items">
+    <div class="trust-item">
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#c9a84c" stroke-width="2" stroke-linejoin="round"/><polyline points="14,2 14,8 20,8" stroke="#c9a84c" stroke-width="2" stroke-linejoin="round"/></svg>
+      Free AI Toolbox PDF
+    </div>
+    <div class="trust-item">
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#c9a84c" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      100% Free — Always
+    </div>
+    <div class="trust-item">
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#c9a84c" stroke-width="2" stroke-linejoin="round"/></svg>
+      No Spam, Ever
+    </div>
+    <div class="trust-item">
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="#c9a84c" stroke-width="2" stroke-linejoin="round"/><path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/></svg>
+      Unsubscribe Anytime
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>© 2026 <a href="https://www.reliablevasolutionsllc.net/" target="_blank">Reliable V A Solutions, LLC</a> — Sherrie Hayes, Executive Virtual Assistant</p>
+  <p style="margin-top:0.4rem;">
+    <a href="https://www.reliablevasolutionsllc.net/about" target="_blank">About</a> ·
+    <a href="https://www.reliablevasolutionsllc.net/services" target="_blank">Services</a> ·
+    <a href="https://www.reliablevasolutionsllc.net/book-online" target="_blank">Book Online</a> ·
+    <a href="https://www.reliablevasolutionsllc.net/contact" target="_blank">Contact</a> ·
+    <a href="privacy-policy.html">Privacy Policy</a> ·
+    <a href="terms-of-service.html">Terms of Service</a>
+  </p>
+</footer>
+
+<script>
+  // ─────────────────────────────────────────────────────────────
+  //  PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL BELOW
+  // ─────────────────────────────────────────────────────────────
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzn_8k9omaNI7FAu37We-aDvqp4Zmc20P2AJCsOVlWT96qk6DLYmCCJLgw-fvrrZQqr/exec';
+  // ─────────────────────────────────────────────────────────────
+
+  const form       = document.getElementById('signupForm');
+  const successMsg = document.getElementById('successMsg');
+  const errorBanner= document.getElementById('errorBanner');
+  const submitBtn  = document.getElementById('submitBtn');
+  const setupNotice= document.getElementById('setupNotice');
+
+  // Hide setup notice once URL is configured
+  if (GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE') {
+    setupNotice.style.display = 'none';
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorBanner.classList.remove('visible');
+
+    // ── Validation ──
+    const firstName = form.firstName.value.trim();
+    const lastName  = form.lastName.value.trim();
+    const email     = form.email.value.trim();
+    const prefs     = [...form.querySelectorAll('input[name="prefs"]:checked')].map(c => c.value);
+
+    if (!firstName || !lastName || !email) {
+      errorBanner.textContent = 'Please fill in your first name, last name, and email address.';
+      errorBanner.classList.add('visible');
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errorBanner.textContent = 'Please enter a valid email address.';
+      errorBanner.classList.add('visible');
+      return;
+    }
+
+    if (prefs.length === 0) {
+      errorBanner.textContent = 'Please select at least one subscription preference.';
+      errorBanner.classList.add('visible');
+      return;
+    }
+
+    // ── Payload ──
+    const payload = {
+      firstName,
+      lastName,
+      email,
+      phone:      form.phone.value.trim(),
+      business:   form.business.value.trim(),
+      newsletter: prefs.includes('newsletter'),
+      sales:      prefs.includes('sales'),
+      reminders:  prefs.includes('reminders')
+    };
+
+    // ── Submit ──
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting…';
+
+    if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE') {
+      // Demo mode — just show success without posting
+      showSuccess();
+      return;
+    }
+
+    try {
+      const res = await fetch(GOOGLE_SCRIPT_URL, {
+        method:  'POST',
+        mode:    'no-cors',   // required for Apps Script
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload)
+      });
+      showSuccess();
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Subscribe — It\'s Free ✨';
+      errorBanner.textContent = 'Submission failed. Please check your connection and try again.';
+      errorBanner.classList.add('visible');
+    }
+  });
+
+  function showSuccess() {
+    form.style.display = 'none';
+    document.querySelector('.form-card h2').style.display = 'none';
+    document.querySelector('.form-card p').style.display = 'none';
+    document.getElementById('errorBanner').style.display = 'none';
+    setupNotice.style.display = 'none';
+    successMsg.classList.add('visible');
+  }
+</script>
+</body>
+</html>
